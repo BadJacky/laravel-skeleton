@@ -56,6 +56,7 @@ return [
             'driver' => 'stack',
             'channels' => explode(',', env('LOG_STACK', 'single')),
             'ignore_exceptions' => false,
+            'permission' => 0666,
         ],
 
         'single' => [
@@ -63,6 +64,7 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
+            'permission' => 0666,
         ],
 
         'daily' => [
@@ -71,6 +73,7 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => env('LOG_DAILY_DAYS', 14),
             'replace_placeholders' => true,
+            'permission' => 0666,
         ],
 
         'slack' => [
@@ -125,8 +128,33 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+            'permission' => 0666,
         ],
 
+        'query' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/query.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+            'permission' => 0666,
+        ],
+
+    ],
+
+    'query' => [
+        'enabled' => env('LOG_QUERY', env('APP_ENV') === 'local'),
+
+        // Only record queries that are slower than the following time
+        // Unit: milliseconds
+        'slower_than' => env('QUERY_LOG_SLOWER_THAN', 0),
+
+        // Only record queries when the QUERY_LOG_TRIGGER is set in the environment,
+        // or when the trigger HEADER, GET, POST, or COOKIE variable is set.
+        'trigger' => env('QUERY_LOG_TRIGGER'),
+
+        // Log Channel
+        'channel' => env('QUERY_LOG_CHANNEL', 'query'),
     ],
 
 ];
