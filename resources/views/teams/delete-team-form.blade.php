@@ -13,7 +13,10 @@
         </div>
 
         <div class="mt-5">
-            <x-danger-button wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+            <x-danger-button
+                wire:click="$toggle('confirmingTeamDeletion')"
+                wire:loading.attr="disabled"
+            >
                 {{ __('Delete Team') }}
             </x-danger-button>
         </div>
@@ -29,11 +32,18 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-secondary-button wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+                <x-secondary-button
+                    wire:click="$toggle('confirmingTeamDeletion')"
+                    wire:loading.attr="disabled"
+                >
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ms-3" wire:click="deleteTeam" wire:loading.attr="disabled">
+                <x-danger-button
+                    class="ms-3"
+                    wire:click="deleteTeam"
+                    wire:loading.attr="disabled"
+                >
                     {{ __('Delete Team') }}
                 </x-danger-button>
             </x-slot>

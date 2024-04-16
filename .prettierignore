@@ -2,6 +2,11 @@
 public/css/filament
 public/js/filament
 public/vendor
+resources/views/emails
+resources/views/mail
+resources/views/vendor
+resources/views/welcome.blade.php
+storage/framework/views
 composer.json
 composer.lock
 docker-compose.yml
