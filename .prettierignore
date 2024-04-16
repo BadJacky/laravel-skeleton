@@ -1,0 +1,7 @@
+.devcontainer/devcontainer.json
+public/css/filament
+public/js/filament
+public/vendor
+composer.json
+composer.lock
+docker-compose.yml
