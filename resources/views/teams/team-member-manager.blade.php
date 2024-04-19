@@ -41,12 +41,12 @@
                             <x-input-error for="role" class="mt-2" />
 
                             <div
-                                class="relative z-0 mt-1 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer"
+                                class="relative z-0 mt-1 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700"
                             >
                                 @foreach ($this->roles as $index => $role)
                                     <button
                                         type="button"
-                                        class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }}"
+                                        class="{{ $index > 0 ? 'rounded-t-none border-t border-gray-200 focus:border-none dark:border-gray-700' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }} relative inline-flex w-full rounded-lg px-4 py-3 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')"
                                     >
                                         <div
@@ -55,7 +55,7 @@
                                             <!-- Role Name -->
                                             <div class="flex items-center">
                                                 <div
-                                                    class="text-sm text-gray-600 dark:text-gray-400 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}"
+                                                    class="{{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }} text-sm text-gray-600 dark:text-gray-400"
                                                 >
                                                     {{ $role->name }}
                                                 </div>
@@ -80,7 +80,7 @@
 
                                             <!-- Role Description -->
                                             <div
-                                                class="mt-2 text-xs text-gray-600 dark:text-gray-400 text-start"
+                                                class="mt-2 text-start text-xs text-gray-600 dark:text-gray-400"
                                             >
                                                 {{ $role->description }}
                                             </div>
@@ -131,7 +131,7 @@
                                     @if (Gate::check('removeTeamMember', $team))
                                         <!-- Cancel Team Invitation -->
                                         <button
-                                            class="cursor-pointer ms-6 text-sm text-red-500 focus:outline-none"
+                                            class="ms-6 cursor-pointer text-sm text-red-500 focus:outline-none"
                                             wire:click="cancelTeamInvitation({{ $invitation->id }})"
                                         >
                                             {{ __('Cancel') }}
@@ -167,7 +167,7 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <img
-                                        class="w-8 h-8 rounded-full object-cover"
+                                        class="h-8 w-8 rounded-full object-cover"
                                         src="{{ $user->profile_photo_url }}"
                                         alt="{{ $user->name }}"
                                     />
@@ -194,7 +194,7 @@
                                     <!-- Leave Team -->
                                     @if ($this->user->id === $user->id)
                                         <button
-                                            class="cursor-pointer ms-6 text-sm text-red-500"
+                                            class="ms-6 cursor-pointer text-sm text-red-500"
                                             wire:click="$toggle('confirmingLeavingTeam')"
                                         >
                                             {{ __('Leave') }}
@@ -203,7 +203,7 @@
                                         <!-- Remove Team Member -->
                                     @elseif (Gate::check('removeTeamMember', $team))
                                         <button
-                                            class="cursor-pointer ms-6 text-sm text-red-500"
+                                            class="ms-6 cursor-pointer text-sm text-red-500"
                                             wire:click="confirmTeamMemberRemoval('{{ $user->id }}')"
                                         >
                                             {{ __('Remove') }}
@@ -226,12 +226,12 @@
 
         <x-slot name="content">
             <div
-                class="relative z-0 mt-1 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer"
+                class="relative z-0 mt-1 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700"
             >
                 @foreach ($this->roles as $index => $role)
                     <button
                         type="button"
-                        class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }}"
+                        class="{{ $index > 0 ? 'rounded-t-none border-t border-gray-200 focus:border-none dark:border-gray-700' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }} relative inline-flex w-full rounded-lg px-4 py-3 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
                         wire:click="$set('currentRole', '{{ $role->key }}')"
                     >
                         <div
@@ -240,7 +240,7 @@
                             <!-- Role Name -->
                             <div class="flex items-center">
                                 <div
-                                    class="text-sm text-gray-600 dark:text-gray-400 {{ $currentRole == $role->key ? 'font-semibold' : '' }}"
+                                    class="{{ $currentRole == $role->key ? 'font-semibold' : '' }} text-sm text-gray-600 dark:text-gray-400"
                                 >
                                     {{ $role->name }}
                                 </div>

@@ -19,7 +19,7 @@
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input
                     id="email"
-                    class="block mt-1 w-full"
+                    class="mt-1 block w-full"
                     type="email"
                     name="email"
                     :value="old('email', $request->email)"
@@ -33,7 +33,7 @@
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input
                     id="password"
-                    class="block mt-1 w-full"
+                    class="mt-1 block w-full"
                     type="password"
                     name="password"
                     required
@@ -48,7 +48,7 @@
                 />
                 <x-input
                     id="password_confirmation"
-                    class="block mt-1 w-full"
+                    class="mt-1 block w-full"
                     type="password"
                     name="password_confirmation"
                     required
@@ -56,7 +56,7 @@
                 />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="mt-4 flex items-center justify-end">
                 <x-button>
                     {{ __('Reset Password') }}
                 </x-button>

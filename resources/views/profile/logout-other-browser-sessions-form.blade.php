@@ -25,7 +25,7 @@
                                     viewBox="0 0 24 24"
                                     stroke-width="1.5"
                                     stroke="currentColor"
-                                    class="w-8 h-8 text-gray-500"
+                                    class="h-8 w-8 text-gray-500"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -40,7 +40,7 @@
                                     viewBox="0 0 24 24"
                                     stroke-width="1.5"
                                     stroke="currentColor"
-                                    class="w-8 h-8 text-gray-500"
+                                    class="h-8 w-8 text-gray-500"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -66,7 +66,7 @@
 
                                     @if ($session->is_current_device)
                                         <span
-                                            class="text-green-500 font-semibold"
+                                            class="font-semibold text-green-500"
                                         >
                                             {{ __('This device') }}
                                         </span>
@@ -82,7 +82,7 @@
             </div>
         @endif
 
-        <div class="flex items-center mt-5">
+        <div class="mt-5 flex items-center">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
                 {{ __('Log Out Other Browser Sessions') }}
             </x-button>

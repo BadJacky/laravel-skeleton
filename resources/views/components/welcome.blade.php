@@ -1,5 +1,5 @@
 <div
-    class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700"
+    class="border-b border-gray-200 bg-white p-6 lg:p-8 dark:border-gray-700 dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent"
 >
     <x-application-logo class="block h-12 w-auto" />
 
@@ -7,7 +7,7 @@
         Welcome to your Jetstream application!
     </h1>
 
-    <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">
+    <p class="mt-6 leading-relaxed text-gray-500 dark:text-gray-400">
         Laravel Jetstream provides a beautiful, robust starting point for your
         next Laravel application. Laravel is designed to help you build your
         application using a development environment that is simple, powerful,
@@ -18,7 +18,7 @@
 </div>
 
 <div
-    class="bg-gray-200 dark:bg-gray-800 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8"
+    class="grid grid-cols-1 gap-6 bg-gray-200 bg-opacity-25 p-6 md:grid-cols-2 lg:gap-8 lg:p-8 dark:bg-gray-800"
 >
     <div>
         <div class="flex items-center">
@@ -27,7 +27,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                class="w-6 h-6 stroke-gray-400"
+                class="h-6 w-6 stroke-gray-400"
             >
                 <path
                     stroke-linecap="round"
@@ -43,7 +43,7 @@
         </div>
 
         <p
-            class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+            class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400"
         >
             Laravel has wonderful documentation covering every aspect of the
             framework. Whether you're new to the framework or have previous
@@ -61,7 +61,7 @@
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
-                    class="ms-1 w-5 h-5 fill-indigo-500 dark:fill-indigo-200"
+                    class="ms-1 h-5 w-5 fill-indigo-500 dark:fill-indigo-200"
                 >
                     <path
                         fill-rule="evenodd"
@@ -80,7 +80,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                class="w-6 h-6 stroke-gray-400"
+                class="h-6 w-6 stroke-gray-400"
             >
                 <path
                     stroke-linecap="round"
@@ -95,7 +95,7 @@
         </div>
 
         <p
-            class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+            class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400"
         >
             Laracasts offers thousands of video tutorials on Laravel, PHP, and
             JavaScript development. Check them out, see for yourself, and
@@ -112,7 +112,7 @@
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
-                    class="ms-1 w-5 h-5 fill-indigo-500 dark:fill-indigo-200"
+                    class="ms-1 h-5 w-5 fill-indigo-500 dark:fill-indigo-200"
                 >
                     <path
                         fill-rule="evenodd"
@@ -131,7 +131,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                class="w-6 h-6 stroke-gray-400"
+                class="h-6 w-6 stroke-gray-400"
             >
                 <path
                     stroke-linecap="round"
@@ -147,7 +147,7 @@
         </div>
 
         <p
-            class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+            class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400"
         >
             Laravel Jetstream is built with Tailwind, an amazing utility first
             CSS framework that doesn't get in your way. You'll be amazed how
@@ -163,7 +163,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                class="w-6 h-6 stroke-gray-400"
+                class="h-6 w-6 stroke-gray-400"
             >
                 <path
                     stroke-linecap="round"
@@ -179,7 +179,7 @@
         </div>
 
         <p
-            class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+            class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400"
         >
             Authentication and registration views are included with Laravel
             Jetstream, as well as support for user email verification and

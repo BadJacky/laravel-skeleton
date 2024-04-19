@@ -1,5 +1,5 @@
 export default {
-    plugins: ['prettier-plugin-blade'],
+    plugins: ['prettier-plugin-blade', 'prettier-plugin-tailwindcss'],
     singleQuote: true,
     overrides: [
         {

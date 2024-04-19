@@ -29,7 +29,7 @@
                     <x-label for="code" value="{{ __('Code') }}" />
                     <x-input
                         id="code"
-                        class="block mt-1 w-full"
+                        class="mt-1 block w-full"
                         type="text"
                         inputmode="numeric"
                         name="code"
@@ -46,7 +46,7 @@
                     />
                     <x-input
                         id="recovery_code"
-                        class="block mt-1 w-full"
+                        class="mt-1 block w-full"
                         type="text"
                         name="recovery_code"
                         x-ref="recovery_code"
@@ -54,10 +54,10 @@
                     />
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="mt-4 flex items-center justify-end">
                     <button
                         type="button"
-                        class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 underline cursor-pointer"
+                        class="cursor-pointer text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400"
                         x-show="! recovery"
                         x-on:click="
                             recovery = true
@@ -71,7 +71,7 @@
 
                     <button
                         type="button"
-                        class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 underline cursor-pointer"
+                        class="cursor-pointer text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400"
                         x-cloak
                         x-show="recovery"
                         x-on:click="

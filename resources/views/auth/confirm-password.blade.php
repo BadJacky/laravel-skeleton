@@ -17,7 +17,7 @@
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input
                     id="password"
-                    class="block mt-1 w-full"
+                    class="mt-1 block w-full"
                     type="password"
                     name="password"
                     required
@@ -26,7 +26,7 @@
                 />
             </div>
 
-            <div class="flex justify-end mt-4">
+            <div class="mt-4 flex justify-end">
                 <x-button class="ms-4">
                     {{ __('Confirm') }}
                 </x-button>

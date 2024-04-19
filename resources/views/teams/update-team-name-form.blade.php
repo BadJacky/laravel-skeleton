@@ -12,9 +12,9 @@
         <div class="col-span-6">
             <x-label value="{{ __('Team Owner') }}" />
 
-            <div class="flex items-center mt-2">
+            <div class="mt-2 flex items-center">
                 <img
-                    class="w-12 h-12 rounded-full object-cover"
+                    class="h-12 w-12 rounded-full object-cover"
                     src="{{ $team->owner->profile_photo_url }}"
                     alt="{{ $team->owner->name }}"
                 />
@@ -23,7 +23,7 @@
                     <div class="text-gray-900 dark:text-white">
                         {{ $team->owner->name }}
                     </div>
-                    <div class="text-gray-700 dark:text-gray-300 text-sm">
+                    <div class="text-sm text-gray-700 dark:text-gray-300">
                         {{ $team->owner->email }}
                     </div>
                 </div>

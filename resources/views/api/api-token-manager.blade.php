@@ -31,7 +31,7 @@
                         value="{{ __('Permissions') }}"
                     />
 
-                    <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
                         @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                             <label class="flex items-center">
                                 <x-checkbox
@@ -84,7 +84,7 @@
                                     {{ $token->name }}
                                 </div>
 
-                                <div class="flex items-center ms-2">
+                                <div class="ms-2 flex items-center">
                                     @if ($token->last_used_at)
                                         <div class="text-sm text-gray-400">
                                             {{ __('Last used') }}
@@ -94,7 +94,7 @@
 
                                     @if (Laravel\Jetstream\Jetstream::hasPermissions())
                                         <button
-                                            class="cursor-pointer ms-6 text-sm text-gray-400 underline"
+                                            class="ms-6 cursor-pointer text-sm text-gray-400 underline"
                                             wire:click="manageApiTokenPermissions({{ $token->id }})"
                                         >
                                             {{ __('Permissions') }}
@@ -102,7 +102,7 @@
                                     @endif
 
                                     <button
-                                        class="cursor-pointer ms-6 text-sm text-red-500"
+                                        class="ms-6 cursor-pointer text-sm text-red-500"
                                         wire:click="confirmApiTokenDeletion({{ $token->id }})"
                                     >
                                         {{ __('Delete') }}
@@ -132,7 +132,7 @@
                 type="text"
                 readonly
                 :value="$plainTextToken"
-                class="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500 w-full break-all"
+                class="mt-4 w-full break-all rounded bg-gray-100 px-4 py-2 font-mono text-sm text-gray-500"
                 autofocus
                 autocomplete="off"
                 autocorrect="off"
@@ -159,7 +159,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                     <label class="flex items-center">
                         <x-checkbox
