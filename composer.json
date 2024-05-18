@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "jiannei/laravel-enum": "^4.0",
+        "jiannei/laravel-response": "^6.0",
         "laravel-lang/json-fallback": "^2.1",
         "laravel-lang/locales": "^2.6",
         "laravel/framework": "^11.0",
