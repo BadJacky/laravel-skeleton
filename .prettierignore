@@ -9,3 +9,4 @@ resources/views/welcome.blade.php
 storage/framework/views
 composer.lock
 docker-compose.yml
+pnpm-lock.yaml
