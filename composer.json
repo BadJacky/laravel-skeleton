@@ -22,6 +22,7 @@
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
+        "opcodesio/log-viewer": "^3.10",
         "overtrue/laravel-query-logger": "^3.2"
     },
     "require-dev": {
