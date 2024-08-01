@@ -40,6 +40,22 @@ namespace App\Models{
 /**
  * 
  *
+ * @method static \Illuminate\Database\Eloquent\Builder|Model newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model withoutTrashed()
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperModel {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int $user_id
  * @property string $name
