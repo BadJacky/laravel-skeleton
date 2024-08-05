@@ -36,7 +36,9 @@ parameters:
             
     excludePaths:
         - ./*/*/FileToBeExcluded.php
-
+        - app/Filament/Resources/Shield/RoleResource.php
+        - database/seeders/ShieldSeeder.php
+        
     checkMissingIterableValueType: false
 
     reportUnmatchedIgnoredErrors: false
