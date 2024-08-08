@@ -68,5 +68,8 @@ class AdminPanelProvider extends PanelProvider
         Forms\Components\Toggle::configureUsing(function (Forms\Components\Toggle $toggle): void {
             $toggle->inline(false);
         });
+        Forms\Components\Select::configureUsing(function (Forms\Components\Select $select): void {
+            $select->native(false);
+        });
     }
 }
