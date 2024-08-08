@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Model extends BaseModel
 {
+    use HasDateTimeFormatter;
     use HasFactory;
     use SoftDeletes;
 }

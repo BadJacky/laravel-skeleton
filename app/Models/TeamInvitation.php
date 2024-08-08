@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
@@ -11,6 +12,8 @@ use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
  */
 class TeamInvitation extends JetstreamTeamInvitation
 {
+    use HasDateTimeFormatter;
+
     /**
      * The attributes that are mass assignable.
      *
