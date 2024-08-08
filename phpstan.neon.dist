@@ -38,7 +38,10 @@ parameters:
         - ./*/*/FileToBeExcluded.php
         - app/Filament/Resources/Shield/RoleResource.php
         - database/seeders/ShieldSeeder.php
-        
+
+    scanFiles:
+        - _ide_helper_models.php
+
     checkMissingIterableValueType: false
 
     reportUnmatchedIgnoredErrors: false
