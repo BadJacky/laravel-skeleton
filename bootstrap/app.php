@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api(prepend: [
             \App\Http\Middleware\AcceptHeader::class,
         ]);
+        $middleware->alias([
+            // 接口语言设置
+            'change-locale' => \App\Http\Middleware\ChangeLocale::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
