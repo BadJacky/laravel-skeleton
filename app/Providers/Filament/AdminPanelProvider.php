@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Forms;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -57,5 +58,15 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
             ]);
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        Forms\Components\Toggle::configureUsing(function (Forms\Components\Toggle $toggle): void {
+            $toggle->inline(false);
+        });
     }
 }
