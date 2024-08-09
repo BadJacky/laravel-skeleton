@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\OrderScope;
 use App\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Jetstream\Jetstream;
@@ -23,6 +24,14 @@ class TeamInvitation extends JetstreamTeamInvitation
         'email',
         'role',
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new OrderScope);
+    }
 
     /**
      * Get the team that the invitation belongs to.

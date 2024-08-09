@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\OrderScope;
 use App\Traits\HasDateTimeFormatter;
 use Laravel\Jetstream\Membership as JetstreamMembership;
 
@@ -18,4 +19,12 @@ class Membership extends JetstreamMembership
      * @var bool
      */
     public $incrementing = true;
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new OrderScope);
+    }
 }
