@@ -71,5 +71,14 @@ class AdminPanelProvider extends PanelProvider
         Forms\Components\Select::configureUsing(function (Forms\Components\Select $select): void {
             $select->native(false);
         });
+        Forms\Components\DatePicker::configureUsing(function (Forms\Components\DatePicker $datePicker): void {
+            $datePicker->native(false);
+        });
+        Forms\Components\TimePicker::configureUsing(function (Forms\Components\TimePicker $timePicker): void {
+            $timePicker->native(false);
+        });
+        Forms\Components\DateTimePicker::configureUsing(function (Forms\Components\DateTimePicker $dateTimePicker): void {
+            $dateTimePicker->native(false);
+        });
     }
 }
