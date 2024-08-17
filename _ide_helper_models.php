@@ -196,20 +196,54 @@ namespace App\Models{
  * 
  *
  * @property int $id
- * @property string $name
+ * @property string $first_name 姓
+ * @property string $last_name 名
+ * @property string|null $first_alias 别名（姓）
+ * @property string|null $last_alias 别名（名）
+ * @property int $gender 性别
+ * @property string|null $birthday 生日
+ * @property int|null $age 年龄
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string|null $phone 电话
+ * @property string|null $avatar 头像
  * @property mixed $password
+ * @property string|null $zip 邮编
+ * @property string|null $address 地址
  * @property bool $is_admin 是否为管理员
+ * @property string|null $introduction 个人简介
  * @property string|null $two_factor_secret
  * @property string|null $two_factor_recovery_codes
  * @property string|null $two_factor_confirmed_at
  * @property string|null $remember_token
  * @property int|null $current_team_id
  * @property string|null $profile_photo_path
+ * @property string|null $ip IP 地址
+ * @property string|null $method 请求方式
+ * @property string|null $path 请求路径
+ * @property string|null $url 请求 URL
+ * @property string|null $browser 浏览器
+ * @property string|null $browser_version 浏览器版本
+ * @property string|null $languages 浏览器语言
+ * @property string|null $engine 引擎
+ * @property string|null $os 操作系统
+ * @property string|null $os_alias 操作系统别名
+ * @property string|null $device 设备
+ * @property string|null $device_manufacturer 设备制造商
+ * @property string|null $device_model 设备型号
+ * @property int $notification_count 通知数量
+ * @property string|null $last_authed_at 最后认证时间
+ * @property string|null $last_actived_at 最后活跃时间
+ * @property int $state 状态
+ * @property int $order 排序
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read mixed $alias
  * @property-read \App\Models\Team|null $currentTeam
+ * @property-read mixed $format_gender
+ * @property-read mixed $full_avatar
+ * @property-read mixed $name
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Team> $ownedTeams
@@ -226,25 +260,58 @@ namespace App\Models{
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions, $without = false)
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
  * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereBrowser($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereBrowserVersion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDevice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDeviceManufacturer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDeviceModel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEngine($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIntroduction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsAdmin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLanguages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastActivedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastAuthedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereNotificationCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereOs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereOsAlias($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorConfirmedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereZip($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
  * @mixin \Eloquent
  */
 	#[\AllowDynamicProperties]

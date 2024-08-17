@@ -1,11 +1,17 @@
 <?php
 
+use App\Enums\GenderEnum;
 use App\Enums\IdentityTypeEnum;
 use App\Enums\ResponseEnum;
 use App\Enums\UserTypeEnum;
 use Jiannei\Enum\Laravel\Support\Enums\HttpStatusCode;
 
 return [
+    GenderEnum::class => [
+        GenderEnum::MAN->name => '男性',
+        GenderEnum::WOMAN->name => '女性',
+        GenderEnum::UNKNOWN->name => '不明',
+    ],
     IdentityTypeEnum::class => [
         IdentityTypeEnum::NAME->value => 'ユーザー名',
         IdentityTypeEnum::EMAIL->value => 'メールアドレス',
