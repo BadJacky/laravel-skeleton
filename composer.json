@@ -24,7 +24,8 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "opcodesio/log-viewer": "^3.10",
-        "overtrue/laravel-query-logger": "^3.2"
+        "overtrue/laravel-query-logger": "^3.2",
+        "whichbrowser/parser": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",
