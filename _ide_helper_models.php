@@ -15,6 +15,50 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id 自增长 ID
+ * @property string $name 类目名称
+ * @property int|null $parent_id
+ * @property bool $is_directory 是否拥有子类目
+ * @property int $level 当前类目层级
+ * @property string $path 该类目所有父类目 id
+ * @property bool $state 状态
+ * @property int $order 排序
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read mixed $ancestors
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Category> $children
+ * @property-read int|null $children_count
+ * @property-read mixed $full_name
+ * @property-read Category|null $parent
+ * @property-read mixed $path_ids
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereIsDirectory($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category withoutTrashed()
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperCategory {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int $team_id
  * @property int $user_id
