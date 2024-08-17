@@ -59,6 +59,44 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id 自增长 ID
+ * @property string $name 名称
+ * @property string|null $slug 别名
+ * @property int $used_count 使用次数
+ * @property string|null $color 颜色
+ * @property string|null $description 描述
+ * @property bool $state 状态
+ * @property int $order 排序
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Label newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Label newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Label onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Label query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label whereUsedCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Label withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Label withoutTrashed()
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperLabel {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int $team_id
  * @property int $user_id

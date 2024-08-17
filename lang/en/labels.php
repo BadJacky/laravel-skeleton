@@ -2,4 +2,5 @@
 
 return [
     'categories' => 'Categories',
+    'labels' => 'Labels',
 ];
