@@ -10,4 +10,7 @@ return [
         // 登录相关，次数/分钟
         'sign' => env('API_SIGN_RATE_LIMITS', '10,1'),
     ],
+    'domain' => env('API_DOMAIN', ''),
+
+    'prefix' => env('API_PREFIX', 'api'),
 ];
