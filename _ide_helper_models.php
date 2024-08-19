@@ -318,3 +318,47 @@ namespace App\Models{
 	class IdeHelperUser {}
 }
 
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id ID
+ * @property string $key 标识
+ * @property string|null $email 邮箱
+ * @property string|null $phone 手机号
+ * @property string $code 验证码
+ * @property string $type 类型
+ * @property int|null $user_id 用户 ID
+ * @property \Illuminate\Support\Carbon|null $expired_at 过期时间
+ * @property \Illuminate\Support\Carbon|null $used_at 使用时间
+ * @property int $state 状态
+ * @property int $order 排序
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode query()
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereExpiredAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereUsedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|VerificationCode withoutTrashed()
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperVerificationCode {}
+}
+

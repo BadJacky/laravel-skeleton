@@ -269,5 +269,8 @@ return [
         'username' => '用户名',
         'value' => '价值',
         'year' => '年',
+        'verification_code' => [
+            'type' => '验证码类型',
+        ],
     ],
 ];

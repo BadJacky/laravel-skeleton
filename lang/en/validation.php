@@ -269,5 +269,8 @@ return [
         'username' => 'username',
         'value' => 'value',
         'year' => 'year',
+        'verification_code' => [
+            'type' => 'verification code type',
+        ],
     ],
 ];

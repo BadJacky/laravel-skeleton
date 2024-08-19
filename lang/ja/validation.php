@@ -269,5 +269,8 @@ return [
         'username' => 'ユーザー名',
         'value' => '価値',
         'year' => '年',
+        'verification_code' => [
+            'type' => '認証コードのタイプ',
+        ],
     ],
 ];

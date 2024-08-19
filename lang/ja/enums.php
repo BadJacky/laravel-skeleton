@@ -4,6 +4,7 @@ use App\Enums\GenderEnum;
 use App\Enums\IdentityTypeEnum;
 use App\Enums\ResponseEnum;
 use App\Enums\UserTypeEnum;
+use App\Enums\VerificationCodeEnum;
 use Jiannei\Enum\Laravel\Support\Enums\HttpStatusCode;
 
 return [
@@ -50,5 +51,8 @@ return [
         UserTypeEnum::MODERATOR->value => 'モデレーター',
         UserTypeEnum::SUBSCRIBER->value => 'サブスクライバー',
         UserTypeEnum::SUPER_ADMINISTRATOR->value => 'スーパー管理者',
+    ],
+    VerificationCodeEnum::class => [
+        VerificationCodeEnum::REGISTER->name => '登録',
     ],
 ];
