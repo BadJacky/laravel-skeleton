@@ -182,4 +182,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     {
         return $this->full_avatar;
     }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
 }
