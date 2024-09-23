@@ -277,4 +277,9 @@ return [
         'year' => 'year',
         'zip' => 'zip code',
     ],
+    'messages' => [
+        'phone' => [
+            'phone' => 'The :attribute field must be a valid phone number.',
+        ],
+    ],
 ];

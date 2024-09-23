@@ -277,4 +277,9 @@ return [
         'year' => '年',
         'zip' => '郵便番号',
     ],
+    'messages' => [
+        'phone' => [
+            'phone' => ':Attributeは有効な電話番号ではありません。',
+        ],
+    ],
 ];

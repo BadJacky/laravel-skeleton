@@ -34,10 +34,11 @@ class UserRequest extends Request
                         if (! Str::contains($value, 'register')) {
                             $fail(trans('messages.failed.verification_key_enum_not_match'));
                         }
-                    }, ],
+                    },
+                ],
                 'verification_code' => ['required', 'string', 'min_digits:6', 'max_digits:6'],
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->whereNull('deleted_at')],
-                'phone' => ['sometimes', 'string'],
+                'phone' => ['sometimes', 'string', 'phone:US,CN,JP'],
                 'zip' => ['sometimes', 'string', 'max:255'],
                 'address' => ['sometimes', 'string', 'max:255'],
                 'password' => $this->passwordRules(),
@@ -54,6 +55,13 @@ class UserRequest extends Request
         return [
             'verification_key' => trans('validation.attributes.verification_key'),
             'verification_code' => trans('validation.attributes.verification_code'),
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'phone.phone' => trans('validation.messages.phone.phone'),
         ];
     }
 }
