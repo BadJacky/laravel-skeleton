@@ -11,5 +11,6 @@ return [
     'success' => [
         'verification_code_issued' => '验证码发放成功。',
         'register' => '注册成功。',
+        'auth' => '登录成功。',
     ],
 ];
