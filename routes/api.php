@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationCodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,7 @@ Route::middleware(['change-locale'])->group(function () {
     // 登录相关接口
     Route::middleware(['throttle:'.config('api.rate_limits.sign')])->group(function () {
         Route::apiResource('verification_codes', VerificationCodeController::class)->only(['store']);
+        Route::post('users', [UserController::class, 'store'])->name('users.store');
     });
 
     Route::middleware('throttle:'.config('api.rate_limits.access'))->group(function () {

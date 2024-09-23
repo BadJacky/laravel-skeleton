@@ -45,7 +45,7 @@ class VerificationCodeRequest extends Request
     public function attributes(): array
     {
         return [
-            'type' => trans('validation.attributes.verification_code.type'),
+            'type' => trans('validation.attributes.verification_code_enum'),
         ];
     }
 }
