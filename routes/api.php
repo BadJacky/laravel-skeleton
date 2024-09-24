@@ -17,6 +17,11 @@ Route::middleware(['change-locale'])->group(function () {
         Route::post('users', [UserController::class, 'store'])->name('users.store');
         // 用户登录
         Route::post('authorizations', [AuthorizationController::class, 'store'])->name('authorizations.store');
+        // 登录后可以访问的接口
+        Route::middleware('auth:sanctum')->group(function () {
+            // 删除 token
+            Route::delete('authorizations/current', [AuthorizationController::class, 'destroy']);
+        });
     });
 
     Route::middleware('throttle:'.config('api.rate_limits.access'))->group(function () {

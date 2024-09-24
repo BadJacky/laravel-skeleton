@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthorizationRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Jiannei\Enum\Laravel\Support\Enums\HttpStatusCode;
 use Jiannei\Response\Laravel\Support\Facades\Response;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthorizationController extends Controller
 {
@@ -72,8 +74,12 @@ class AuthorizationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy(Request $request): JsonResponse
     {
-        //
+        /** @var PersonalAccessToken $access_token */
+        $access_token = $request->user()->currentAccessToken();
+        $access_token->delete();
+
+        return Response::noContent();
     }
 }
