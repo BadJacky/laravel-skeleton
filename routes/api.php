@@ -31,6 +31,8 @@ Route::middleware(['change-locale'])->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
             // 当前登录用户信息
             Route::get('user', [UserController::class, 'me'])->name('user.show');
+            // 注销用户
+            Route::delete('users/{user}', [UserController::class, 'destroy']);
         });
     });
 });
