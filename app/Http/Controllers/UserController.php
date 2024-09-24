@@ -9,8 +9,10 @@ use App\Models\User;
 use App\Models\VerificationCode;
 use App\Traits\HasCreateTeam;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Jiannei\Enum\Laravel\Support\Enums\HttpStatusCode;
 use Jiannei\Response\Laravel\Support\Facades\Response;
 use Throwable;
 use WhichBrowser\Parser;
@@ -87,15 +89,24 @@ class UserController extends Controller
             'token_type' => 'Bearer',
             'expires_in' => config('sanctum.expiration') * 60,
             'access_token' => $user->createToken('web')->plainTextToken,
-        ], trans('messages.success.register'), 201);
+        ], trans('messages.success.register'), HttpStatusCode::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(User $user): JsonResponse
     {
-        //
+        return Response::success(new UserResource($user->setAppends([
+            'format_gender',
+        ])), trans('messages.success.fetch'));
+    }
+
+    public function me(Request $request): JsonResponse
+    {
+        return Response::success((new UserResource($request->user()->setAppends([
+            'format_gender',
+        ])))->showSensitiveFields(), trans('messages.success.fetch'));
     }
 
     /**

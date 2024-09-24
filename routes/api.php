@@ -20,6 +20,12 @@ Route::middleware(['change-locale'])->group(function () {
     });
 
     Route::middleware('throttle:'.config('api.rate_limits.access'))->group(function () {
-        //
+        // 某个用户的详情
+        Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+        // 登录后可以访问的接口
+        Route::middleware('auth:sanctum')->group(function () {
+            // 当前登录用户信息
+            Route::get('user', [UserController::class, 'me'])->name('user.show');
+        });
     });
 });

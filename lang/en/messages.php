@@ -12,5 +12,6 @@ return [
         'verification_code_issued' => 'Verification code issued successfully.',
         'register' => 'Register successfully.',
         'auth' => 'Login successfully.',
+        'fetch' => 'Data fetch successfully.',
     ],
 ];

@@ -12,5 +12,6 @@ return [
         'verification_code_issued' => '認証コードを発行しました。',
         'register' => 'ユーザー登録に成功しました。',
         'auth' => 'ログインに成功しました。',
+        'fetch' => 'データ取得に成功しました。',
     ],
 ];
