@@ -81,6 +81,15 @@
         ],
         "analyze": [
             "@php vendor/bin/phpstan analyse"
+        ],
+        "format": [
+            "@php vendor/bin/pint"
+        ],
+        "format:test": [
+            "@php vendor/bin/pint --test"
+        ],
+        "format:dirty": [
+            "@php vendor/bin/pint --dirty"
         ]
     },
     "extra": {
