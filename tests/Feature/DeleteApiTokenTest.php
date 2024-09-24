@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\User;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -14,8 +16,8 @@ test('api tokens can be deleted', function () {
     }
 
     $token = $user->tokens()->create([
-        'name' => 'Test Token',
-        'token' => Str::random(40),
+        'name'      => 'Test Token',
+        'token'     => Str::random(40),
         'abilities' => ['create', 'read'],
     ]);
 

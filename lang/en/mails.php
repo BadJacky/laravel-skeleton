@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'subject' => [
         'register' => 'Register Authentication Code',

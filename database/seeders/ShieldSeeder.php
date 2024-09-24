@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use BezhanSalleh\FilamentShield\Support\Utils;
@@ -8,12 +10,29 @@ use Spatie\Permission\PermissionRegistrar;
 
 class ShieldSeeder extends Seeder
 {
+    public static function makeDirectPermissions(string $directPermissions): void
+    {
+        if (! blank($permissions = json_decode($directPermissions, true))) {
+            /** @var Model $permissionModel */
+            $permissionModel = Utils::getPermissionModel();
+
+            foreach ($permissions as $permission) {
+                if ($permissionModel::whereName($permission)->doesntExist()) {
+                    $permissionModel::create([
+                        'name'       => $permission['name'],
+                        'guard_name' => $permission['guard_name'],
+                    ]);
+                }
+            }
+        }
+    }
+
     public function run(): void
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $rolesWithPermissions = '[{"name":"super_admin","guard_name":"web","permissions":["view_role","view_any_role","create_role","update_role","delete_role","delete_any_role"]},{"name":"panel_user","guard_name":"web","permissions":[]}]';
-        $directPermissions = '[]';
+        $directPermissions    = '[]';
 
         static::makeRolesWithPermissions($rolesWithPermissions);
         static::makeDirectPermissions($directPermissions);
@@ -31,36 +50,19 @@ class ShieldSeeder extends Seeder
 
             foreach ($rolePlusPermissions as $rolePlusPermission) {
                 $role = $roleModel::firstOrCreate([
-                    'name' => $rolePlusPermission['name'],
+                    'name'       => $rolePlusPermission['name'],
                     'guard_name' => $rolePlusPermission['guard_name'],
                 ]);
 
                 if (! blank($rolePlusPermission['permissions'])) {
                     $permissionModels = collect($rolePlusPermission['permissions'])
                         ->map(fn ($permission) => $permissionModel::firstOrCreate([
-                            'name' => $permission,
+                            'name'       => $permission,
                             'guard_name' => $rolePlusPermission['guard_name'],
                         ]))
                         ->all();
 
                     $role->syncPermissions($permissionModels);
-                }
-            }
-        }
-    }
-
-    public static function makeDirectPermissions(string $directPermissions): void
-    {
-        if (! blank($permissions = json_decode($directPermissions, true))) {
-            /** @var Model $permissionModel */
-            $permissionModel = Utils::getPermissionModel();
-
-            foreach ($permissions as $permission) {
-                if ($permissionModel::whereName($permission)->doesntExist()) {
-                    $permissionModel::create([
-                        'name' => $permission['name'],
-                        'guard_name' => $permission['guard_name'],
-                    ]);
                 }
             }
         }

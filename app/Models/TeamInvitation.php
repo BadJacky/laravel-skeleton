@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Models\Scopes\OrderScope;
@@ -26,18 +28,18 @@ class TeamInvitation extends JetstreamTeamInvitation
     ];
 
     /**
-     * The "booted" method of the model.
-     */
-    protected static function booted(): void
-    {
-        static::addGlobalScope(new OrderScope);
-    }
-
-    /**
      * Get the team that the invitation belongs to.
      */
     public function team(): BelongsTo
     {
         return $this->belongsTo(Jetstream::teamModel());
+    }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new OrderScope);
     }
 }

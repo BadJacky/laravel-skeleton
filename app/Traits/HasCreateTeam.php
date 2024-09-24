@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use App\Models\Team;
@@ -13,8 +15,8 @@ trait HasCreateTeam
     protected function createTeam(User $user): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => $user->name."'s Team",
+            'user_id'       => $user->id,
+            'name'          => $user->name . "'s Team",
             'personal_team' => true,
         ]));
     }

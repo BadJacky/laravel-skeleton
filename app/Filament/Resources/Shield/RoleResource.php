@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\Shield;
 
 use App\Filament\Resources\Shield\RoleResource\Pages;
@@ -123,10 +125,10 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
+            'index'  => Pages\ListRoles::route('/'),
             'create' => Pages\CreateRole::route('/create'),
-            'view' => Pages\ViewRole::route('/{record}'),
-            'edit' => Pages\EditRole::route('/{record}/edit'),
+            'view'   => Pages\ViewRole::route('/{record}'),
+            'edit'   => Pages\EditRole::route('/{record}/edit'),
         ];
     }
 
@@ -211,7 +213,7 @@ class RoleResource extends Resource implements HasShieldPermissions
                 );
 
                 return Forms\Components\Section::make($sectionLabel)
-                    ->description(fn () => new HtmlString('<span style="word-break: break-word;">'.Utils::showModelPath($entity['fqcn']).'</span>'))
+                    ->description(fn () => new HtmlString('<span style="word-break: break-word;">' . Utils::showModelPath($entity['fqcn']) . '</span>'))
                     ->compact()
                     ->schema([
                         static::getCheckBoxListComponentForResource($entity),
@@ -233,7 +235,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     {
         return collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))
             ->flatMap(function ($permission) use ($entity) {
-                $name = $permission.'_'.$entity['resource'];
+                $name  = $permission . '_' . $entity['resource'];
                 $label = static::shield()->hasLocalizedPermissionLabels()
                     ? FilamentShield::getLocalizedResourcePermissionLabel($permission)
                     : $name;
@@ -321,7 +323,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getTabFormComponentForPage(): Component
     {
         $options = static::getPageOptions();
-        $count = count($options);
+        $count   = count($options);
 
         return Forms\Components\Tabs\Tab::make('pages')
             ->label(__('filament-shield::filament-shield.pages'))
@@ -335,7 +337,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getTabFormComponentForWidget(): Component
     {
         $options = static::getWidgetOptions();
-        $count = count($options);
+        $count   = count($options);
 
         return Forms\Components\Tabs\Tab::make('widgets')
             ->label(__('filament-shield::filament-shield.widgets'))
@@ -349,7 +351,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getTabFormComponentForCustomPermissions(): Component
     {
         $options = static::getCustomPermissionOptions();
-        $count = count($options);
+        $count   = count($options);
 
         return Forms\Components\Tabs\Tab::make('custom')
             ->label(__('filament-shield::filament-shield.custom'))
@@ -363,7 +365,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getTabFormComponentForSimpleResourcePermissionsView(): Component
     {
         $options = FilamentShield::getAllResourcePermissions();
-        $count = count($options);
+        $count   = count($options);
 
         return Forms\Components\Tabs\Tab::make('resources')
             ->label(__('filament-shield::filament-shield.resources'))

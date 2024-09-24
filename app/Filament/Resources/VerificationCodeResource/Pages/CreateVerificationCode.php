@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\VerificationCodeResource\Pages;
 
 use App\Filament\Resources\VerificationCodeResource;
@@ -16,7 +18,7 @@ class CreateVerificationCode extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['key'] = 'verification_code_'.data_get($data, 'type').'_'.data_get($data, 'key');
+        $data['key'] = 'verification_code_' . data_get($data, 'type') . '_' . data_get($data, 'key');
 
         return $data;
     }

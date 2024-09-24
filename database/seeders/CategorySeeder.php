@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\Category;
@@ -14,7 +16,7 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => '手机配件',
+                'name'     => '手机配件',
                 'children' => [
                     ['name' => '手机壳'],
                     ['name' => '贴膜'],
@@ -22,7 +24,7 @@ class CategorySeeder extends Seeder
                     ['name' => '数据线'],
                     ['name' => '充电器'],
                     [
-                        'name' => '耳机',
+                        'name'     => '耳机',
                         'children' => [
                             ['name' => '有线耳机'],
                             ['name' => '蓝牙耳机'],
@@ -31,7 +33,7 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'name' => '电脑配件',
+                'name'     => '电脑配件',
                 'children' => [
                     ['name' => '显示器'],
                     ['name' => '显卡'],
@@ -42,7 +44,7 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'name' => '电脑整机',
+                'name'     => '电脑整机',
                 'children' => [
                     ['name' => '笔记本'],
                     ['name' => '台式机'],
@@ -53,7 +55,7 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'name' => '手机通讯',
+                'name'     => '手机通讯',
                 'children' => [
                     ['name' => '智能机'],
                     ['name' => '老人机'],

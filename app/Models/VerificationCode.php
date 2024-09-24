@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 /**
@@ -34,7 +36,7 @@ class VerificationCode extends Model
     {
         return [
             'expired_at' => 'datetime',
-            'used_at' => 'datetime',
+            'used_at'    => 'datetime',
         ];
     }
 }

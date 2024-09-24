@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Observers\CategoryObserver;
@@ -28,6 +30,16 @@ class Category extends Model
      */
     protected $appends = ['path_ids', 'ancestors', 'full_name'];
 
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -37,18 +49,8 @@ class Category extends Model
     {
         return [
             'is_directory' => 'boolean',
-            'state' => 'boolean',
+            'state'        => 'boolean',
         ];
-    }
-
-    public function parent(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function children(): HasMany
-    {
-        return $this->hasMany(Category::class, 'parent_id');
     }
 
     /**

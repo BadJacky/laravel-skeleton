@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Enums\VerificationCodeEnum;
@@ -121,7 +123,7 @@ class VerificationCodeResource extends Resource
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         VerificationCodeEnum::REGISTER->value => 'warning',
-                        default => 'primary',
+                        default                               => 'primary',
                     })
                     ->searchable()
                     ->label(trans('fields.verification_code.type')),
@@ -187,10 +189,10 @@ class VerificationCodeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListVerificationCodes::route('/'),
+            'index'  => Pages\ListVerificationCodes::route('/'),
             'create' => Pages\CreateVerificationCode::route('/create'),
-            'view' => Pages\ViewVerificationCode::route('/{record}'),
-            'edit' => Pages\EditVerificationCode::route('/{record}/edit'),
+            'view'   => Pages\ViewVerificationCode::route('/{record}'),
+            'edit'   => Pages\EditVerificationCode::route('/{record}/edit'),
         ];
     }
 

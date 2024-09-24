@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'subject' => [
         'register' => '会員登録のお知らせ',

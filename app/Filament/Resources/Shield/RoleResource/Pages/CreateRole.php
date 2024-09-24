@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\Shield\RoleResource\Pages;
 
 use App\Filament\Resources\Shield\RoleResource;
@@ -11,9 +13,9 @@ use Spatie\Permission\Models\Role;
 
 class CreateRole extends CreateRecord
 {
-    protected static string $resource = RoleResource::class;
-
     public Collection $permissions;
+
+    protected static string $resource = RoleResource::class;
 
     protected function getRedirectUrl(): string
     {
@@ -39,7 +41,7 @@ class CreateRole extends CreateRecord
         $this->permissions->each(function ($permission) use ($permissionModels) {
             $permissionModels->push(Utils::getPermissionModel()::firstOrCreate([
                 /** @phpstan-ignore-next-line */
-                'name' => $permission,
+                'name'       => $permission,
                 'guard_name' => $this->data['guard_name'],
             ]));
         });

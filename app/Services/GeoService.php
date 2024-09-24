@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
@@ -23,7 +25,7 @@ class GeoService
 
     public function fetch($query, $format = 'json')
     {
-        $uri = $this->uri.'/'.$format;
+        $uri = $this->uri . '/' . $format;
 
         if (! in_array($query['method'], $this->methods)) {
             throw new InvalidArgumentException(trans('messages.failed.method_not_match', [

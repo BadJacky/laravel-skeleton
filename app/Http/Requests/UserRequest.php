@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use App\Actions\Fortify\PasswordValidationRules;
@@ -22,10 +24,10 @@ class UserRequest extends Request
     {
         return match ($this->method()) {
             'POST' => [
-                'first_name' => ['required', 'string', 'max:255'],
-                'last_name' => ['required', 'string', 'max:255'],
-                'first_alias' => ['nullable', 'required_with:last_alias', 'string', 'max:255'],
-                'last_alias' => ['nullable', 'required_with:first_alias', 'string', 'max:255'],
+                'first_name'       => ['required', 'string', 'max:255'],
+                'last_name'        => ['required', 'string', 'max:255'],
+                'first_alias'      => ['nullable', 'required_with:last_alias', 'string', 'max:255'],
+                'last_alias'       => ['nullable', 'required_with:first_alias', 'string', 'max:255'],
                 'verification_key' => [
                     'required',
                     'string',
@@ -37,14 +39,14 @@ class UserRequest extends Request
                     },
                 ],
                 'verification_code' => ['required', 'string', 'min_digits:6', 'max_digits:6'],
-                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->whereNull('deleted_at')],
-                'phone' => ['sometimes', 'string', 'phone:US,CN,JP'],
-                'zip' => ['sometimes', 'string', 'max:255'],
-                'address' => ['sometimes', 'string', 'max:255'],
-                'password' => $this->passwordRules(),
-                'gender' => ['sometimes', Rule::enum(GenderEnum::class)],
-                'birthday' => ['sometimes', 'date_format:Y-m-d'],
-                'introduction' => ['sometimes', 'string', 'max:255'],
+                'email'             => ['required', 'string', 'email', 'max:255', Rule::unique('users')->whereNull('deleted_at')],
+                'phone'             => ['sometimes', 'string', 'phone:US,CN,JP'],
+                'zip'               => ['sometimes', 'string', 'max:255'],
+                'address'           => ['sometimes', 'string', 'max:255'],
+                'password'          => $this->passwordRules(),
+                'gender'            => ['sometimes', Rule::enum(GenderEnum::class)],
+                'birthday'          => ['sometimes', 'date_format:Y-m-d'],
+                'introduction'      => ['sometimes', 'string', 'max:255'],
             ],
             default => [],
         };
@@ -53,7 +55,7 @@ class UserRequest extends Request
     public function attributes(): array
     {
         return [
-            'verification_key' => trans('validation.attributes.verification_key'),
+            'verification_key'  => trans('validation.attributes.verification_key'),
             'verification_code' => trans('validation.attributes.verification_code'),
         ];
     }

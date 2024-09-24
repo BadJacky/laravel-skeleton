@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorizationRequest;
@@ -40,9 +42,9 @@ class AuthorizationController extends Controller
         }
 
         return Response::success([
-            'user' => $user,
-            'token_type' => 'Bearer',
-            'expires_in' => config('sanctum.expiration') * 60,
+            'user'         => $user,
+            'token_type'   => 'Bearer',
+            'expires_in'   => config('sanctum.expiration') * 60,
             'access_token' => $user->createToken('web')->plainTextToken,
         ], trans('messages.success.auth'), HttpStatusCode::HTTP_CREATED);
     }

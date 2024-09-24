@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Jetstream;
 
 use App\Models\Team;
@@ -28,7 +30,7 @@ class CreateTeam implements CreatesTeams
         AddingTeam::dispatch($user);
 
         $user->switchTeam($team = $user->ownedTeams()->create([
-            'name' => $input['name'],
+            'name'          => $input['name'],
             'personal_team' => false,
         ]));
 

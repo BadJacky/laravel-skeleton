@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use App\Enums\VerificationCodeEnum;
@@ -18,13 +20,13 @@ class VerificationCodeRequest extends Request
         switch ($this->method()) {
             case 'POST':
                 $rules = [
-                    'type' => ['required', 'string', Rule::enum(VerificationCodeEnum::class)],
+                    'type'  => ['required', 'string', Rule::enum(VerificationCodeEnum::class)],
                     'email' => ['required', 'string', 'email'],
                 ];
 
                 match ($this->input('type')) {
                     VerificationCodeEnum::REGISTER->value => $rules['email'][] = Rule::unique('users')->whereNull('deleted_at'),
-                    default => [],
+                    default                               => [],
                 };
 
                 break;

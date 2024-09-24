@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Enums\VerificationCodeEnum;
@@ -49,28 +51,28 @@ class VerificationCodeController extends Controller
             // TODO: 本地化邮件
             match ($type) {
                 VerificationCodeEnum::REGISTER->value => Mail::to($email)->send(new Register($code)),
-                default => null,
+                default                               => null,
             };
         } catch (Throwable $th) {
             return Response::fail($th->getMessage() ?: trans('messages.failed.verification_code_issued'));
         }
 
-        $key = 'verification_code_'.$type.'_'.Str::random(15);
+        $key        = 'verification_code_' . $type . '_' . Str::random(15);
         $expired_at = now()->addMinutes((int) config('auth.verification_code_ttl', 5));
 
         Cache::put($key, ['email' => $email, 'code' => $code], $expired_at);
 
         VerificationCode::create([
-            'key' => $key,
-            'email' => $email,
-            'code' => $code,
-            'type' => $type,
-            'user_id' => optional($request->user())->id,
+            'key'        => $key,
+            'email'      => $email,
+            'code'       => $code,
+            'type'       => $type,
+            'user_id'    => optional($request->user())->id,
             'expired_at' => $expired_at,
         ]);
 
         return Response::created([
-            'key' => $key,
+            'key'        => $key,
             'expired_at' => $expired_at->toDateTimeString(),
         ], trans('messages.success.verification_code_issued'));
     }

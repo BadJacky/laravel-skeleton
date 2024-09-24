@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -117,19 +119,24 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         'profile_photo_url',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function canAccessPanel(Panel $panel): bool
     {
-        return [
-            'gender' => 'integer',
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'is_admin' => 'boolean',
-        ];
+        return $this->is_admin;
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->name;
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->full_avatar;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 
     /**
@@ -140,9 +147,19 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         static::addGlobalScope(new OrderScope);
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
     {
-        return $this->is_admin;
+        return [
+            'gender'            => 'integer',
+            'email_verified_at' => 'datetime',
+            'password'          => 'hashed',
+            'is_admin'          => 'boolean',
+        ];
     }
 
     protected function formatGender(): Attribute
@@ -155,19 +172,14 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value, array $attributes) => data_get($attributes, 'first_name').' '.data_get($attributes, 'last_name'),
+            get: fn (mixed $value, array $attributes) => data_get($attributes, 'first_name') . ' ' . data_get($attributes, 'last_name'),
         );
-    }
-
-    public function getFilamentName(): string
-    {
-        return $this->name;
     }
 
     protected function alias(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value, array $attributes) => data_get($attributes, 'first_alias').' '.data_get($attributes, 'last_alias'),
+            get: fn (mixed $value, array $attributes) => data_get($attributes, 'first_alias') . ' ' . data_get($attributes, 'last_alias'),
         );
     }
 
@@ -176,15 +188,5 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         return Attribute::make(
             get: fn (mixed $value, array $attributes) => data_get($attributes, 'avatar') ? Storage::url(data_get($attributes, 'avatar')) : null,
         );
-    }
-
-    public function getFilamentAvatarUrl(): ?string
-    {
-        return $this->full_avatar;
-    }
-
-    public function isAdmin()
-    {
-        return $this->is_admin;
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LabelResource\Pages;
@@ -148,10 +150,10 @@ class LabelResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLabels::route('/'),
+            'index'  => Pages\ListLabels::route('/'),
             'create' => Pages\CreateLabel::route('/create'),
-            'view' => Pages\ViewLabel::route('/{record}'),
-            'edit' => Pages\EditLabel::route('/{record}/edit'),
+            'view'   => Pages\ViewLabel::route('/{record}'),
+            'edit'   => Pages\EditLabel::route('/{record}/edit'),
         ];
     }
 

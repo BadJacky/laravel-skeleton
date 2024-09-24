@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Enums\VerificationCodeEnum;
@@ -42,7 +44,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): JsonResponse
     {
-        $cache_key = $request->input('verification_key');
+        $cache_key   = $request->input('verification_key');
         $verify_data = Cache::get($cache_key);
         if (! $verify_data) {
             return Response::fail(trans('messages.failed.verification_code_expired'), 403);
@@ -53,21 +55,21 @@ class UserController extends Controller
         try {
             $user = DB::transaction(function () use ($request, $cache_key, $verify_data) {
                 $agent = new Parser(getallheaders());
-                $user = tap(User::create(array_merge($request->validated(), [
-                    'avatar' => $request->input('avatar'),
-                    'ip' => $request->ip(),
-                    'method' => $request->method(),
-                    'path' => $request->path(),
-                    'url' => $request->url(),
-                    'browser' => $agent->browser->name,
-                    'browser_version' => optional($agent->browser->version)->value,
-                    'language' => $request->getLanguages(),
-                    'engine' => $agent->engine->name,
-                    'os' => $agent->os->name,
-                    'os_alias' => $agent->os->alias,
-                    'device_type' => $agent->device->type,
+                $user  = tap(User::create(array_merge($request->validated(), [
+                    'avatar'              => $request->input('avatar'),
+                    'ip'                  => $request->ip(),
+                    'method'              => $request->method(),
+                    'path'                => $request->path(),
+                    'url'                 => $request->url(),
+                    'browser'             => $agent->browser->name,
+                    'browser_version'     => optional($agent->browser->version)->value,
+                    'language'            => $request->getLanguages(),
+                    'engine'              => $agent->engine->name,
+                    'os'                  => $agent->os->name,
+                    'os_alias'            => $agent->os->alias,
+                    'device_type'         => $agent->device->type,
                     'device_manufacturer' => $agent->device->manufacturer,
-                    'device_model' => $agent->device->model,
+                    'device_model'        => $agent->device->model,
                 ])), function (User $user) {
                     $this->createTeam($user);
                 });
@@ -85,9 +87,9 @@ class UserController extends Controller
         Cache::forget($cache_key);
 
         return Response::success([
-            'user' => new UserResource($user),
-            'token_type' => 'Bearer',
-            'expires_in' => config('sanctum.expiration') * 60,
+            'user'         => new UserResource($user),
+            'token_type'   => 'Bearer',
+            'expires_in'   => config('sanctum.expiration') * 60,
             'access_token' => $user->createToken('web')->plainTextToken,
         ], trans('messages.success.register'), HttpStatusCode::HTTP_CREATED);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Jetstream\Features;
@@ -15,7 +17,7 @@ test('team members can be invited to team', function () {
     $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
         ->set('addTeamMemberForm', [
             'email' => 'test@example.com',
-            'role' => 'admin',
+            'role'  => 'admin',
         ])->call('addTeamMember');
 
     Mail::assertSent(TeamInvitation::class);
@@ -34,7 +36,7 @@ test('team member invitations can be cancelled', function () {
     $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
         ->set('addTeamMemberForm', [
             'email' => 'test@example.com',
-            'role' => 'admin',
+            'role'  => 'admin',
         ])->call('addTeamMember');
 
     $invitationId = $user->currentTeam->fresh()->teamInvitations->first()->id;

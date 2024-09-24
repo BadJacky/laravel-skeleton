@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use App\Models\User;
@@ -38,15 +40,15 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Pulse::user(fn ($user) => [
-            'name' => $user->name,
-            'extra' => $user->email,
+            'name'   => $user->name,
+            'extra'  => $user->email,
             'avatar' => $user->full_avatar,
         ]);
 
         Pulse::handleExceptionsUsing(function ($e) {
             Log::debug('An exception happened in Pulse', [
                 'message' => $e->getMessage(),
-                'stack' => $e->getTraceAsString(),
+                'stack'   => $e->getTraceAsString(),
             ]);
         });
     }
