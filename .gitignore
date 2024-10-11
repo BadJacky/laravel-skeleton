@@ -1,7 +1,5 @@
 /.phpunit.cache
 /node_modules
-docs/.vitepress/dist
-docs/.vitepress/cache
 /public/build
 /public/hot
 /public/storage
