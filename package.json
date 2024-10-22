@@ -15,6 +15,7 @@
         "@tailwindcss/typography": "^0.5.10",
         "autoprefixer": "^10.4.16",
         "axios": "^1.6.4",
+        "chokidar": "^4.0.1",
         "eslint": "^8.57.0",
         "globals": "^15.0.0",
         "husky": "^9.0.11",
