@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use DutchCodingCompany\FilamentDeveloperLogins\FilamentDeveloperLoginsPlugin;
 use Filament\Forms;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -60,6 +61,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                FilamentDeveloperLoginsPlugin::make()
+                    ->enabled(app()->isLocal())
+                    ->switchable(true)
+                    ->users([
+                        'Super Admin' => 'zhaiyuxin103@hotmail.com',
+                        'Admin'       => 'zhaiyuxin103@gmail.com',
+                    ]),
             ]);
     }
 
