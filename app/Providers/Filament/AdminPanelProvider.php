@@ -21,6 +21,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Stephenjude\FilamentDebugger\DebuggerPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -68,6 +69,8 @@ class AdminPanelProvider extends PanelProvider
                         'Super Admin' => 'zhaiyuxin103@hotmail.com',
                         'Admin'       => 'zhaiyuxin103@gmail.com',
                     ]),
+                DebuggerPlugin::make()
+                    ->navigationGroup(label: trans('labels.debuggers')),
             ]);
     }
 
