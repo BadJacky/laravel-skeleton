@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fe969e8070e2b59490384da51dc3526",
+    "content-hash": "15ce1b6f3c71f8d0f348e75a3562d77b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8382,6 +8382,74 @@
                 "source": "https://github.com/stephenjude/filament-debugger/tree/3.1.2"
             },
             "time": "2024-09-25T10:49:54+00:00"
+        },
+        {
+            "name": "stephenjude/filament-feature-flags",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephenjude/filament-feature-flags.git",
+                "reference": "8d571f7758c66624c6e66670c5e3f70a5c29175a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephenjude/filament-feature-flags/zipball/8d571f7758c66624c6e66670c5e3f70a5c29175a",
+                "reference": "8d571f7758c66624c6e66670c5e3f70a5c29175a",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^10.0|^11.0",
+                "laravel/pennant": "^1.10",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.14.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.8",
+                "orchestra/testbench": "^8.8",
+                "pestphp/pest": "^2.20",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "pestphp/pest-plugin-livewire": "^2.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stephenjude\\FilamentFeatureFlag\\FeatureFlagPluginServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stephenjude\\FilamentFeatureFlag\\": "src/",
+                    "Stephenjude\\FilamentFeatureFlag\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "stephenjude",
+                    "email": "stephenjudesuccess@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament implementation of feature flags and segmentation with Laravel Pennant.",
+            "homepage": "https://github.com/stephenjude/filament-feature-flags",
+            "keywords": [
+                "filament-feature-flags",
+                "laravel",
+                "stephenjude"
+            ],
+            "support": {
+                "issues": "https://github.com/stephenjude/filament-feature-flags/issues",
+                "source": "https://github.com/stephenjude/filament-feature-flags/tree/2.1.0"
+            },
+            "time": "2024-09-25T10:43:06+00:00"
         },
         {
             "name": "symfony/clock",

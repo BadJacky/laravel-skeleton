@@ -33,6 +33,7 @@
         "spiral/roadrunner-cli": "^2.6.0",
         "spiral/roadrunner-http": "^3.3.0",
         "stephenjude/filament-debugger": "^3.1",
+        "stephenjude/filament-feature-flags": "^2.1",
         "whichbrowser/parser": "^2.1"
     },
     "require-dev": {

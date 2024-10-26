@@ -22,6 +22,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Stephenjude\FilamentDebugger\DebuggerPlugin;
+use Stephenjude\FilamentFeatureFlag\FeatureFlagPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -71,6 +72,7 @@ class AdminPanelProvider extends PanelProvider
                     ]),
                 DebuggerPlugin::make()
                     ->navigationGroup(label: trans('labels.debuggers')),
+                FeatureFlagPlugin::make(),
             ]);
     }
 
