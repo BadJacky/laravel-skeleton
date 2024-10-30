@@ -1,30 +1,77 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <x-authentication-card-logo/>
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
+        <x-validation-errors class="mb-4"/>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input
-                    id="name"
-                    class="mt-1 block w-full"
-                    type="text"
-                    name="name"
-                    :value="old('name')"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
+            <div class="flex justify-between gap-4 md:gap-6">
+                <div class="basis-1/2">
+                    <x-label
+                        for="first_name"
+                        value="{{ __('fields.first_name') }}"
+                    />
+                    <x-input
+                        id="first_name"
+                        class="mt-1 block w-full"
+                        type="text"
+                        name="first_name"
+                        :value="old('first_name')"
+                        required
+                        autofocus
+                    />
+                </div>
+                <div class="basis-1/2">
+                    <x-label
+                        for="last_name"
+                        value="{{ __('fields.last_name') }}"
+                    />
+                    <x-input
+                        id="last_name"
+                        class="mt-1 block w-full"
+                        type="text"
+                        name="last_name"
+                        :value="old('last_name')"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="mt-4 flex justify-between gap-4 md:gap-6">
+                <div class="basis-1/2">
+                    <x-label
+                        for="first_alias"
+                        value="{{ __('fields.first_alias') }}"
+                    />
+                    <x-input
+                        id="first_alias"
+                        class="mt-1 block w-full"
+                        type="text"
+                        name="first_alias"
+                        :value="old('first_alias')"
+                    />
+                </div>
+                <div class="basis-1/2">
+                    <x-label
+                        for="last_alias"
+                        value="{{ __('fields.last_alias') }}"
+                    />
+                    <x-input
+                        id="last_alias"
+                        class="mt-1 block w-full"
+                        type="text"
+                        name="last_alias"
+                        :value="old('last_alias')"
+                    />
+                </div>
             </div>
 
             <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('Email') }}"/>
                 <x-input
                     id="email"
                     class="mt-1 block w-full"
@@ -37,7 +84,18 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="phone" value="{{ __('fields.phone') }}"></x-label>
+                <x-input
+                    id="phone"
+                    class="mt-1 block w-full"
+                    type="text"
+                    name="phone"
+                    :value="old('phone')"
+                ></x-input>
+            </div>
+
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}"/>
                 <x-input
                     id="password"
                     class="mt-1 block w-full"
@@ -67,7 +125,7 @@
                 <div class="mt-4">
                     <x-label for="terms">
                         <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                            <x-checkbox name="terms" id="terms" required/>
 
                             <div class="ms-2">
                                 {!!
