@@ -15,8 +15,12 @@ enum CacheEnum: string
     // 警告：方法名不能相同
     case AUTHORIZATION_USER = 'authorizationUser'; // 将调用下面定义的 authorizationUser 方法获取缓存过期时间
 
-    // 授权用户信息过期时间定义：将在 Jwt token 过期时一同失效
-    private static function authorizationUser()
+    /**
+     * @description 授权用户信息过期时间定义：将在 Jwt token 过期时一同失效
+     *
+     * @phpstan-ignore method.unused
+     */
+    private static function authorizationUser(): float
     {
         $expiration = Carbon::now()->addMinutes((int) config('sanctum.expiration'));
 
